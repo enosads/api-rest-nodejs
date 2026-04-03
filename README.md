@@ -1,6 +1,6 @@
 # API REST Node.js
 
-API REST para gerenciamento de transações financeiras, construída com **Fastify**, **Knex** e **SQLite**.
+Aplicação de estudo desenvolvida durante o curso da [Rocketseat](https://www.rocketseat.com.br/). API REST para gerenciamento de transações financeiras, construída com **Fastify**, **Knex** e **SQLite**.
 
 ## Tecnologias
 

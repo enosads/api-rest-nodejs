@@ -1,14 +1,13 @@
+import cookie from '@fastify/cookie';
 import fastify from 'fastify';
-import { knex } from './database';
-import { env } from './env'
+import { env } from './env';
+import { transactionRoutes } from './routes/transactions';
 
 const app = fastify();
 
-app.get('/hello', async () => {
+app.register(cookie);
+app.register(transactionRoutes, { prefix: '/transactions' });
 
-  const transactions = await knex('transactions').select('*').where({ amount: 100 });
-  return transactions;
-});
 app
   .listen({
     port: env.PORT,

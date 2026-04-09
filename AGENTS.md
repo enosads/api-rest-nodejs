@@ -67,21 +67,14 @@ PORT=3333
 NODE_ENV=development
 ```
 
-## Autenticação
-
-A identificação do usuário é feita via **cookie `sessionId`**:
-- Criado automaticamente no primeiro `POST /transactions`
-- Expira em 7 dias
-- Todas as rotas de leitura exigem o cookie (middleware `checkSessionIdExists`)
-
 ## Endpoints
 
-| Método | Rota                      | Descrição                          | Auth |
-| ------ | ------------------------- | ---------------------------------- | ---- |
-| POST   | `/transactions`           | Cria uma nova transação            | ❌   |
-| GET    | `/transactions`           | Lista todas as transações do usuário | ✅ |
-| GET    | `/transactions/:id`       | Busca uma transação pelo ID        | ✅   |
-| GET    | `/transactions/summary`   | Retorna o saldo total do usuário   | ✅   |
+| Método | Rota                      | Descrição                          |
+| ------ | ------------------------- | ---------------------------------- |
+| POST   | `/transactions`           | Cria uma nova transação            | 
+| GET    | `/transactions`           | Lista todas as transações do usuário |
+| GET    | `/transactions/:id`       | Busca uma transação pelo ID        |
+| GET    | `/transactions/summary`   | Retorna o saldo total do usuário   |
 
 ## Comandos Úteis
 

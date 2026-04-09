@@ -1,9 +1,13 @@
 import cookie from '@fastify/cookie'
-import fastify from 'fastify';
+import fastify, { type FastifyRequest } from 'fastify';
 import { env } from './env';
 import { transactionRoutes } from './routes/transactions';
 
 const app = fastify();
+
+app.addHook('preHandler', async (request: FastifyRequest) => {
+  console.log(`[${request.method}] ${request.url}`);
+});
 
 app.register(cookie);
 

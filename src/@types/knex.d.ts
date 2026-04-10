@@ -1,4 +1,4 @@
-import type { Knex } from "knex";
+import type { Knex } from 'knex';
 
 declare module 'knex/types/tables' {
   export interface Tables {
@@ -8,6 +8,6 @@ declare module 'knex/types/tables' {
       title: string;
       created_at: Date;
       session_id?: string;
-    }
+    };
   }
 }

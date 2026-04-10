@@ -1,0 +1,32 @@
+{
+  "languages": {
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": [
+            "check",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      },
+      "format_on_save": "on"
+    },
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/.bin/biome",
+          "arguments": [
+            "check",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      },
+      "format_on_save": "on"
+    }
+  }
+}

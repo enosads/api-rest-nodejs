@@ -5,9 +5,9 @@ import { knex } from '../database';
 import { checkSessionIdExists } from '../middlewares/check-session-id-exists';
 
 export async function transactionRoutes(app: FastifyInstance) {
-
   // List all transactions (Scoped to session)
-  app.get('/',
+  app.get(
+    '/',
     { preHandler: [checkSessionIdExists] },
     async (request: FastifyRequest) => {
       const sessionId = request.cookies.sessionId;
@@ -17,14 +17,14 @@ export async function transactionRoutes(app: FastifyInstance) {
         .where({ session_id: sessionId });
 
       return { transactions };
-    });
+    },
+  );
 
   // Get a single transaction by id (Scoped to session)
   app.get(
     '/:id',
     { preHandler: [checkSessionIdExists] },
     async (request: FastifyRequest, reply: FastifyReply) => {
-
       const sessionId = request.cookies.sessionId;
       const getTransactionByIdSchema = z.object({
         id: z.uuid(),
@@ -79,7 +79,7 @@ export async function transactionRoutes(app: FastifyInstance) {
       reply.cookie('sessionId', sessionId, {
         path: '/',
         maxAge: 60 * 60 * 24 * 7, // 7 days
-        httpOnly: true
+        httpOnly: true,
       });
     }
 
@@ -90,6 +90,8 @@ export async function transactionRoutes(app: FastifyInstance) {
       session_id: sessionId,
     });
 
-    return reply.status(201).send({ message: 'Transaction created successfully' });
+    return reply
+      .status(201)
+      .send({ message: 'Transaction created successfully' });
   });
 }

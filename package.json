@@ -3,33 +3,38 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
     "lint": "npx @biomejs/biome check src",
     "format": "npx @biomejs/biome format --write src",
     "knex": "node --import tsx ./node_modules/knex/bin/cli.js",
-    "test": "vitest"
+    "test": "vitest",
+    "build": "tsup src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
-  "devDependencies": {
-    "@biomejs/biome": "^2.4.10",
-    "@types/node": "^25.5.0",
-    "@types/supertest": "^7.2.0",
-    "supertest": "^7.2.2",
-    "tsx": "^4.21.0",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.4"
-  },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "dotenv": "^17.4.0",
     "fastify": "^5.8.4",
     "knex": "^3.2.8",
-    "sqlite3": "^6.0.1",
+    "pg": "^8.20.0",
     "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
+    "@types/node": "^25.5.0",
+    "@types/supertest": "^7.2.0",
+    "supertest": "^7.2.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.4",
+    "sqlite3": "^6.0.1"
   }
 }
